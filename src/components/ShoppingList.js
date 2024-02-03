@@ -9,11 +9,6 @@ function ShoppingList({ items, onItemFormSubmit}) {
 
   const [search, setSearch] = useState('')
 
-  const [filteredState, setFilteredState] = useState({
-    queryInput: '',
-    list: []
-  })  // Keep track of filtered data in the state
-
   
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -37,7 +32,7 @@ function ShoppingList({ items, onItemFormSubmit}) {
   return (
     <div className="ShoppingList">
       <ItemForm onItemFormSubmit={onItemFormSubmit}/>
-      <Filter search={search} onSearchChange={onSearchChange} onCategoryChange={handleCategoryChange} filteredItems = {filteredState} />      
+      <Filter search={search} onSearchChange={onSearchChange} onCategoryChange={handleCategoryChange} />      
       <ul className="Items">
         {itemsToDisplay.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
